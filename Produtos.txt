@@ -61,3 +61,84 @@ Localizacao:
 Fabricacao: 
 Aquisicao: 
 ----------------------------------------
+ID: 12
+Serie:
+Patrimonio: 
+Tipo: 
+Descricao: 
+Localizacao: 
+Fabricacao: 
+Aquisicao: 
+----------------------------------------
+ID: 12
+Serie:
+Patrimonio: 
+Tipo: 
+Descricao: 
+Localizacao: 
+Fabricacao: 
+Aquisicao: 
+----------------------------------------
+ID: 12
+Serie:
+Patrimonio: 
+Tipo: 
+Descricao: 
+Localizacao: 
+Fabricacao: 
+Aquisicao: 
+----------------------------------------
+ID: 12
+Serie:
+Patrimonio: 
+Tipo: 
+Descricao: 
+Localizacao: 
+Fabricacao: 
+Aquisicao: 
+----------------------------------------
+ID: 12
+Serie:
+Patrimonio: 
+Tipo: 
+Descricao: 
+Localizacao: 
+Fabricacao: 
+Aquisicao: 
+----------------------------------------
+ID: 12
+Serie:
+Patrimonio: 
+Tipo: 
+Descricao: 
+Localizacao: 
+Fabricacao: 
+Aquisicao: 
+----------------------------------------
+ID: 12
+Serie:
+Patrimonio: 
+Tipo: 
+Descricao: 
+Localizacao: 
+Fabricacao: 
+Aquisicao: 
+----------------------------------------
+ID: 789
+Serie:253729
+Patrimonio: Cadeira
+Tipo: movél
+Descricao: Cadeira de couro
+Localizacao: Sala de Reuniões
+Fabricacao: 24/09/2024
+Aquisicao: 20/01/2025
+----------------------------------------
+ID: 
+Série:
+Patrimônio: 
+Tipo: 
+Descrição: 
+Localização: 
+Fabricação: 
+Aquisição: 
+----------------------------------------
