@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout , QMessageBox
 
 
 import sys
@@ -112,20 +112,21 @@ class Localizacao(QWidget):
         self.setLayout(self.localizacao_v)
 
     def localizar(self):
+        if(self.edit_id.text()== "" or self.edit_empresa.text()=="" or self.edit_logradouro.text()=="" or  self.edit_número.text()=="" or )
         #  Arquivo de texto
 
         arquivo = open("localizacao.txt","+a",encoding="utf8")
         arquivo.write(f"ID: {self.edit_id.text()}\n")
-        arquivo.write(f"Série:{self.edit_empresa.text()}\n")
-        arquivo.write(f"Patrimônio: {self.edit_logradouro.text()}\n")
-        arquivo.write(f"Tipo: {self.edit_número.text()}\n")
-        arquivo.write(f"Descrição: {self.edit_prédio.text()}\n")
-        arquivo.write(f"Localização: {self.edit_andar.text()}\n")
-        arquivo.write(f"Fabricação: {self.edit_sala.text()}\n")
+        arquivo.write(f"Empresa:{self.edit_empresa.text()}\n")
+        arquivo.write(f"Lagradouro: {self.edit_logradouro.text()}\n")
+        arquivo.write(f"Número: {self.edit_número.text()}\n")
+        arquivo.write(f"Prédio: {self.edit_prédio.text()}\n")
+        arquivo.write(f"Andar: {self.edit_andar.text()}\n")
+        arquivo.write(f"Sala: {self.edit_sala.text()}\n")
         arquivo.write("----------------------------------------\n")
         arquivo.close()
-
-
+        
+     
 
 
 # app = QApplication(sys.argv)

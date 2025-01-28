@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout , QMessageBox
 
 
 import sys
@@ -120,19 +120,23 @@ class Patrimonio(QWidget):
 
 
     def cadastrar(self):
+      if(self.edit_id.text()== "" or self.edit_serie.text()== "" or self.edit_patrimonio.text()=="" or self.edit_tipo.text()=="" or self.edit_descricao.text()=="" or self.edit_fabricacao.text()=="" or self.edit_aquisicao.text()==""):
+        QMessageBox.critical(self, "Error" , "Você deve preencher todos os campos")
         #  Arquivo de texto
+      else:    
+            arquivo = open("Produtos.txt","+a",encoding="utf8")
+            arquivo.write(f"ID: {self.edit_id.text()}\n")
+            arquivo.write(f"Série:{self.edit_serie.text()}\n")
+            arquivo.write(f"Patrimônio: {self.edit_patrimonio.text()}\n")
+            arquivo.write(f"Tipo: {self.edit_tipo.text()}\n")
+            arquivo.write(f"Descrição: {self.edit_descricao.text()}\n")
+            arquivo.write(f"Localização: {self.edit_localizacao.text()}\n")
+            arquivo.write(f"Fabricação: {self.edit_fabricacao.text()}\n")
+            arquivo.write(f"Aquisição: {self.edit_aquisicao.text()}\n")
+            arquivo.write("----------------------------------------\n")
+            arquivo.close()
 
-        arquivo = open("Produtos.txt","+a",encoding="utf8")
-        arquivo.write(f"ID: {self.edit_id.text()}\n")
-        arquivo.write(f"Série:{self.edit_serie.text()}\n")
-        arquivo.write(f"Patrimônio: {self.edit_patrimonio.text()}\n")
-        arquivo.write(f"Tipo: {self.edit_tipo.text()}\n")
-        arquivo.write(f"Descrição: {self.edit_descricao.text()}\n")
-        arquivo.write(f"Localização: {self.edit_localizacao.text()}\n")
-        arquivo.write(f"Fabricação: {self.edit_fabricacao.text()}\n")
-        arquivo.write(f"Aquisição: {self.edit_aquisicao.text()}\n")
-        arquivo.write("----------------------------------------\n")
-        arquivo.close()
+            QMessageBox.information(self,"salvo", "Os dados do patrimônio foram salvos")
 
 # app = QApplication(sys.argv)
 
