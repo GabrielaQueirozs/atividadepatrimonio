@@ -112,7 +112,8 @@ class Localizacao(QWidget):
         self.setLayout(self.localizacao_v)
 
     def localizar(self):
-        if(self.edit_id.text()== "" or self.edit_empresa.text()=="" or self.edit_logradouro.text()=="" or  self.edit_número.text()=="" or )
+        if(self.edit_id.text()== "" or self.edit_empresa.text()=="" or self.edit_logradouro.text()=="" or  self.edit_número.text()=="" or self.edit_prédio.text()=="" or self.edit_andar.text()=="" or self.edit_sala.text()=="" ):
+             QMessageBox.critical(self, "Error" , "Você deve preencher todos os campos")
         #  Arquivo de texto
 
         arquivo = open("localizacao.txt","+a",encoding="utf8")
