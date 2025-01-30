@@ -2,8 +2,9 @@ from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButto
 
 
 import sys
+import csv
 
-class Patrimonio(QWidget):
+class Localizar_patrimonio(QWidget):
     def __init__(self):
         super().__init__() 
         
@@ -19,7 +20,7 @@ class Patrimonio(QWidget):
         self.patrimonio_v = QVBoxLayout()
 
 
-    # labels para os dados do cliente
+    # labels para os dados dos produtos
         self.label_id = QLabel("ID:")
         self.label_id.setStyleSheet("QLabel{font-size:12pt}")
 
@@ -54,6 +55,8 @@ class Patrimonio(QWidget):
         self.edit_id =  QLineEdit()
         self.edit_id.setStyleSheet("QLineEdit{Font-size:12pt}")
 
+
+
         self.edit_serie = QLineEdit()
         self.edit_serie.setStyleSheet("QLineEdit{Font-size:12pt}")
 
@@ -78,16 +81,15 @@ class Patrimonio(QWidget):
 
 
 
-         # Botão para cadastrar patrimonio
-        self.button = QPushButton("Cadastrar Patrimônio")
-        self.button.setStyleSheet("QPushButton{background-color:black;color:white;font-size:12pt;font-weight:bold}")
-
-        # Chamar a função do botao
-        self.button.clicked.connect(self.cadastrar)
+        
+        
 
          #  Adicionar a label nome e o lineedit no layout vertical
         self.patrimonio_v.addWidget(self.label_id)
         self.patrimonio_v.addWidget(self.edit_id)
+        self.btnbuscar = QPushButton("Localizar Patrimônio")
+        self.patrimonio_v.addWidget(self.btnbuscar)
+        self.btnbuscar.clicked.connect(self.localizar)
 
         self.patrimonio_v.addWidget(self.label_serie)
         self.patrimonio_v.addWidget(self.edit_serie)
@@ -111,31 +113,33 @@ class Patrimonio(QWidget):
         self.patrimonio_v.addWidget(self.label_aquisicao)
         self.patrimonio_v.addWidget(self.edit_aquisicao)
 
-        # botão
-        self.patrimonio_v.addWidget(self.button)
-
-
+       
         # adicionar o layout
         self.setLayout(self.patrimonio_v)
 
+    def localizar(self):
 
-    def cadastrar(self):
-      if(self.edit_id.text()== "" or self.edit_serie.text()== "" or self.edit_patrimonio.text()=="" or self.edit_tipo.text()=="" or self.edit_descricao.text()=="" or self.edit_fabricacao.text()=="" or self.edit_aquisicao.text()==""):
-        QMessageBox.critical(self, "Error" , "Você deve preencher todos os campos")
-        #  Arquivo de texto
-      else:    
-            arquivo = open("Produtos.csv","+a",encoding="utf8")
-            arquivo.write(f"{self.edit_id.text()};")
-            arquivo.write(f"{self.edit_serie.text()};")
-            arquivo.write(f"{self.edit_patrimonio.text()};")
-            arquivo.write(f" {self.edit_tipo.text()};")
-            arquivo.write(f" {self.edit_descricao.text()};")
-            arquivo.write(f" {self.edit_localizacao.text()};")
-            arquivo.write(f" {self.edit_fabricacao.text()};")
-            arquivo.write(f" {self.edit_aquisicao.text()}\n")
-            arquivo.close()
 
-            QMessageBox.information(self,"salvo", "Os dados do patrimônio foram salvos")
+       arquivo = open("Produtos.csv", "+a" , encoding="utf8")
+       linhas = csv.reader(arquivo)
+
+
+
+       for i in linhas:
+           lin = str(i).replace("['","").replace("']","").split(";")
+           if(lin[0]==self.edit_id.text()): 
+                self.edit_serie.setText(lin[1])
+                self.edit_patrimonio.setText(lin[2])
+                self.edit_tipo.setText(lin[3])
+                self.edit_descricao.setText(lin[4])
+                self.edit_localizacao.setText(lin[5])
+                self.edit_fabricacao.setText(lin[6])
+                self.edit_aquisicao.setText(lin[7])
+
+
+
+  
+
 
 # app = QApplication(sys.argv)
 

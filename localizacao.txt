@@ -6,3 +6,11 @@ Prédio:
 Andar: 
 Sala: 
 ----------------------------------------
+ID: 
+Empresa:
+Lagradouro: 
+Número: 
+Prédio: 
+Andar: 
+Sala: 
+----------------------------------------
